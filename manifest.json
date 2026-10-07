@@ -1,18 +1,41 @@
-{
-  "short_name": "MyPWA",
-  "name": "My ChromeOS PWA Application",
-  "icons": [
-    {
-      "src": "data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 512 512' width='512' height='512'><rect width='512' height='512' fill='%231a73e8'/><circle cx='256' cy='256' r='120' fill='white'/></svg>",
-      "type": "image/svg+xml",
-      "sizes": "512x512",
-      "purpose": "any"
-    }
-  ],
-  "start_url": "./",
-  "background_color": "#f0f4f8",
-  "theme_color": "#1a73e8",
-  "display": "standalone",
-  "orientation": "portrait"
-}
+const CACHE_NAME = "my-pwa-v1";
 
+const FILES_TO_CACHE = [
+    "./",
+    "./index.html",
+    "./style.css",
+    "./script.js",
+    "./manifest.json",
+    "./icon-192.png",
+    "./icon-512.png"
+];
+
+self.addEventListener("install", (event) => {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then((cache) => {
+                return cache.addAll(FILES_TO_CACHE);
+            })
+    );
+});
+
+self.addEventListener("activate", (event) => {
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames
+                    .filter((name) => name !== CACHE_NAME)
+                    .map((name) => caches.delete(name))
+            );
+        })
+    );
+});
+
+self.addEventListener("fetch", (event) => {
+    event.respondWith(
+        caches.match(event.request)
+            .then((cachedResponse) => {
+                return cachedResponse || fetch(event.request);
+            })
+    );
+});
