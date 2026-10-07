@@ -1,0 +1,16 @@
+{
+  "short_name": "OpenTest",
+  "name": "Open Testing",
+  "icons": [
+    {
+      "src": "https://pixabay.com",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "home-app.html",
+  "background_color": "#f0f4f8",
+  "theme_color": "#1a73e8",
+  "display": "standalone",
+  "orientation": "portrait"
+}
