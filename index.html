@@ -4,44 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My PWA</title>
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Open Testing">
+
+    <title>Open Testing</title>
 
     <link rel="stylesheet" href="style.css">
-
     <link rel="manifest" href="manifest.json">
-
-    <meta name="theme-color" content="#111827">
-
-    <link rel="icon" href="icon-192.png">
 </head>
 
 <body>
 
-    <header>
-        <h1>My App</h1>
-        <button id="installButton" hidden>Install App</button>
-    </header>
+<nav class="topnav">
 
-    <main>
-        <section class="card">
-            <h2>Welcome!</h2>
-            <p>
-                This is my Progressive Web App.
-            </p>
+    <img
+        class="brand"
+        src="https://raw.githubusercontent.com/codet-code/Open-Testing/main/Open-Testing-Icon-Home.png"
+        alt="Open Testing"
+    >
 
-            <button id="helloButton">
-                Test App
-            </button>
+    <div class="nav-links">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#games">Games</a>
+        <a class="nav-link" href="#snacks">Snacks</a>
+        <a class="nav-link" href="#updates">Updates</a>
+        <a class="nav-link" href="#support">Support</a>
+        <a class="nav-link" href="#community">Community</a>
+    </div>
 
-            <p id="message"></p>
-        </section>
-    </main>
+    <button id="install-btn" class="install-btn" hidden>
+        Install App
+    </button>
 
-    <footer>
-        <p>My PWA</p>
-    </footer>
+</nav>
 
-    <script src="script.js"></script>
+<main>
+
+<section id="home" class="tab-content active-content">
+
+    <h2>Welcome to Open Testing!</h2>
+
+    <hr>
+
+    <p class="center">
+        Welcome to the Open Testing app!
+    </p>
+
+</section>
+
+
+<section id="games" class="tab-content">
+
+    <h2>Games</h2>
+
+    <hr>
+
+    <div class="button-grid">
+
+        <button onclick="openMinecraftWindow()" class="app-btn minecraft-btn">
+            <img src="https://raw.githubusercontent.com/codet-code/Open-Testing/main/Minecraft-icon.png">
+            Minecraft
+        </button>
+
+        <button onclick="openPolyTrackWindow()" class="app-btn poly-track-btn">
+            <img src="https://raw.githubusercontent.com/codet-code/Open-Testing/main/Poly-Track-Icon.png">
+            Poly Track
+        </button>
+
+        <button onclick="openCookieClickerWindow()" class="app-btn cookie-btn">
+            <img src="https://raw.githubusercontent.com/codet-code/Open-Testing/main/Cookie-Icon.png">
+            Cookie Clicker
+        </button>
+
+        <button onclick="openFlappyBirdWindow()" class="app-btn flappy-btn">
+            <img src="https://raw.githubusercontent.com/codet-code/Open-Testing/main/Flappy-Icon.png">
+            Flappy Bird
+        </button>
+
+        <button onclick="openWeWindow()" class="app-btn">
+            <img src="https://raw.githubusercontent.com/codet-code/Open-Testing/main/We.png">
+            Camera
+        </button>
+
+    </div>
+
+    <hr>
+
+    <h2>Apps</h2>
+
+    <div class="button-grid">
+
+        <button onclick="openSpotifyWindow()" class="app-btn">
+            <img src="https://raw.githubusercontent.com/codet-code/Open-Testing/main/Spotify-Icon.png">
+            Spotify
+        </button>
+
+        <button onclick="openYoutubeWindow()" class="app-btn">
+            <img src="https://raw.githubusercontent.com/codet-code/Open-Testing/main/Youtube-Icon.png">
+            YouTube
+        </button>
+
+        <button onclick="openVSCodeWindow()" class="app-btn">
+            <img src="https://raw.githubusercontent.com/codet-code/Open-Testing/main/VSCode-Icon.png">
+            VS Code
+        </button>
+
+    </div>
+
+</section>
+
+
+<section id="snacks" class="tab-content">
+
+    <h2>Snacks</h2>
+
+    <hr>
+
+    <button onclick="openSnacksWindow()" class="snacks-btn">
+        Open Snacks
+    </button>
+
+</section>
+
+
+<section id="updates" class="tab-content">
+
+    <h2>Updates</h2>
+
+    <hr>
+
+    <div class="outline">
+
+        <h3>Snack Updates</h3>
+
+        <p>Snack Flavors for the week:</p>
+
+        <ul>
+            <li>Monster - White</li>
+            <li>Monster - Regular</li>
+            <li>Monster - Lime</li>
+            <li>Chips - Spicy</li>
+            <li>Chips - Regular</li>
+            <li>Chips - Salty</li>
+        </ul>
+
+    </div>
+
+
+    <div class="outline">
+
+        <h3>Game Updates</h3>
+
+        <p>Games of the Week:</p>
+
+        <ul>
+            <li>Minecraft</li>
+            <li>Poly Track</li>
+        </ul>
+
+        <h3>Actual Game Updates</h3>
+
+        <p>None Yet :)</p>
+
+    </div>
+
+
+    <div class="outline">
+
+        <h3>Website Updates</h3>
+
+        <ul>
+            <li>New Games</li>
+            <li>New buttons for Game Tab</li>
+        </ul>
+
+        <h3>Future Updates</h3>
+
+        <ul>
+            <li>Accounts</li>
+            <li>More Games</li>
+            <li>Better Layout</li>
+            <li>More Games</li>
+            <li>Own Made Games</li>
+            <li>Community Page</li>
+        </ul>
+
+    </div>
+
+</section>
+
+
+<section id="support" class="tab-content">
+
+    <h2>Support</h2>
+
+    <hr>
+
+    <p class="center">
+        Support information will be added here.
+    </p>
+
+</section>
+
+
+<section id="community" class="tab-content">
+
+    <h2>Community</h2>
+
+    <hr>
+
+    <p class="center">
+        Community features are coming soon.
+    </p>
+
+</section>
+
+</main>
+
+
+<script src="tab-switching.js"></script>
+<script src="games.js"></script>
+<script src="pwa.js"></script>
 
 </body>
 </html>
