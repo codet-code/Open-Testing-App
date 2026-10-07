@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My ChromeOS PWA</title>
-  <!-- Link to the app package manifest -->
-  <link rel="manifest" href="manifest.json">
+  <!-- Fixed: Added relative dot './' for GitHub Pages subfolders -->
+  <link rel="manifest" href="./manifest.json">
   <style>
     body {
       font-family: sans-serif;
@@ -13,7 +13,7 @@
       padding: 50px;
       background-color: #f0f4f8;
     }
-    .install-btn {
+    #install-btn {
       padding: 12px 24px;
       font-size: 16px;
       background-color: #1a73e8;
@@ -21,7 +21,7 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      display: none; /* Hidden until browser says app is installable */
+      display: none; 
     }
     #install-btn:hover { background-color: #1557b0; }
   </style>
@@ -31,41 +31,39 @@
   <h1>Welcome to My PWA</h1>
   <p>This is a minimal web page that can be installed on ChromeOS.</p>
   
-  <!-- The custom install button -->
   <button id="install-btn">Install App</button>
 
   <script>
-    // 1. Register the Service Worker (the offline engine)
+    // Fixed: Added relative dot './' to register properly in the repository subfolder
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
+        navigator.serviceWorker.register('./sw.js')
           .then(reg => console.log('Service Worker registered!', reg))
-          .catch(err => console.err('Registration failed:', err));
+          .catch(err => console.error('Registration failed:', err));
       });
     }
 
-    // 2. Capture the install event and wire up the button
     let deferredPrompt;
     const installBtn = document.getElementById('install-btn');
 
     window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault(); // Prevent standard browser popups
-      deferredPrompt = e;   // Save the event for later
-      installBtn.style.display = 'inline-block'; // Show our custom button
+      e.preventDefault(); 
+      deferredPrompt = e;   
+      installBtn.style.display = 'inline-block'; 
     });
 
     installBtn.addEventListener('click', async () => {
       if (!deferredPrompt) return;
       
-      deferredPrompt.prompt(); // Trigger native install dialog
+      deferredPrompt.prompt(); 
       const { outcome } = await deferredPrompt.userChoice;
       
       if (outcome === 'accepted') {
         console.log('User installed the app!');
       }
       
-      deferredPrompt = null; // Reset prompt, can only use once
-      installBtn.style.display = 'none'; // Hide button again
+      deferredPrompt = null; 
+      installBtn.style.display = 'none'; 
     });
   </script>
 </body>
